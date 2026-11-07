@@ -1,0 +1,109 @@
+:root {
+  --table: #e8ebee;      /* the viewing table */
+  --sheet: #f6f7f8;
+  --ink: #16191d;
+  --mute: #5d6670;
+  --line: #cfd5db;
+  --remotion: #3446c9;
+  --html: #0e7468;
+  --tier: var(--ink);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --table: #1a1e23; --sheet: #22272d; --ink: #eef1f4; --mute: #a3acb6; --line: #343b43;
+    --remotion: #8d9cff; --html: #5cc8b6;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--table); color: var(--ink);
+  font-family: "Schibsted Grotesk", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased; line-height: 1.55;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--tier); outline-offset: 3px; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+.bar { display: flex; align-items: center; gap: 24px; padding-top: 22px; padding-bottom: 22px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 17px; letter-spacing: -.01em; }
+.bar nav { margin-left: auto; display: flex; align-items: center; gap: 22px; font-size: 14px; }
+.bar nav a { text-decoration: none; color: var(--mute); }
+.bar nav a:hover { color: var(--ink); }
+.bar nav .gh { color: var(--ink); border: 1px solid var(--line); padding: 7px 13px; border-radius: 6px; background: var(--sheet); }
+
+.intro { padding-top: 56px; padding-bottom: 36px; }
+h1 { margin: 0 0 18px; max-width: 14em; font-size: clamp(36px, 5.4vw, 68px); line-height: 1.04; letter-spacing: -.035em; font-weight: 700; }
+.lede { margin: 0; max-width: 40em; font-size: 18px; color: var(--mute); }
+
+/* the strip: one real frame from every film, laid edge to edge like a contact print */
+.strip { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 3px; background: var(--ink); padding: 3px 0; }
+.strip .frame { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; }
+.strip img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+.strip .frame::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--tier); }
+.strip .frame:hover img { transform: scale(1.04); }
+.remotion { --tier: var(--remotion); }
+.html { --tier: var(--html); }
+
+.tier { padding-top: 88px; }
+.tier-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; align-items: baseline;
+  border-top: 4px solid var(--tier); padding-top: 18px; margin-bottom: 36px; }
+.tier-head h2 { margin: 0; font-size: 30px; letter-spacing: -.02em; font-weight: 700; color: var(--tier); }
+.tier-head p { margin: 0; max-width: 38em; color: var(--mute); }
+
+.films { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 40px; }
+.film h3 { margin: 18px 0 2px; font-size: 21px; letter-spacing: -.015em; font-weight: 600; }
+.film .meta { margin: 0 0 8px; font-size: 14px; color: var(--tier); font-weight: 500; }
+.film .note { margin: 0; max-width: 36em; color: var(--mute); font-size: 15.5px; }
+.poster { position: relative; display: block; width: 100%; padding: 0; border: 0; border-radius: 6px; overflow: hidden;
+  background: var(--ink); cursor: pointer; aspect-ratio: 16 / 9; }
+.poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.poster .play { position: absolute; right: 18px; top: 18px;   /* top right: captions are burned in at the bottom, titles sit top left */ width: 52px; height: 52px; border-radius: 50%;
+  background: var(--tier); transition: transform .2s ease; }
+.poster .play::after { content: ""; position: absolute; left: 21px; top: 16px; border-style: solid;
+  border-width: 10px 0 10px 16px; border-color: transparent transparent transparent #fff; }
+.poster:hover .play, .poster:focus-visible .play { transform: scale(1.1); }
+
+.make { padding-top: 104px; padding-bottom: 24px; }
+.make h2 { margin: 0 0 6px; font-size: 30px; letter-spacing: -.02em; }
+.make p { margin: 0 0 18px; color: var(--mute); }
+.cmd { display: flex; align-items: center; gap: 12px; max-width: 920px; background: var(--sheet); border: 1px solid var(--line);
+  border-radius: 8px; padding: 12px 12px 12px 18px; }
+.cmd code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; font: 14px/1.5 ui-monospace, "SF Mono", Menlo, monospace; }
+.copy { flex: none; font: inherit; font-size: 14px; font-weight: 600; padding: 7px 14px; border-radius: 6px; border: 0;
+  background: var(--ink); color: var(--table); cursor: pointer; }
+footer { padding-top: 48px; padding-bottom: 48px; color: var(--mute); font-size: 14px; }
+
+.player { width: min(1200px, 94vw); max-height: 94vh; padding: 0; border: 0; border-radius: 8px; background: #0d0f12; color: #eef1f4; overflow: auto; }
+.player::backdrop { background: rgb(10 12 15 / .82); }
+.player .screen { background: #000; }
+.player video { display: block; width: 100%; aspect-ratio: 16 / 9; }
+.player .caption { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; padding: 16px 20px 20px; }
+.player h2 { margin: 0; font-size: 19px; font-weight: 600; }
+.player p { margin: 0; grid-column: 1; color: #a3acb6; font-size: 15px; max-width: 48em; }
+.player .close { grid-column: 2; grid-row: 1 / span 2; align-self: start; font: inherit; font-size: 14px; padding: 7px 14px;
+  border-radius: 6px; border: 1px solid #3a414a; background: transparent; color: #eef1f4; cursor: pointer; }
+
+@media (max-width: 900px) {
+  .strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .tier-head { grid-template-columns: 1fr; gap: 10px; }
+  .films { grid-template-columns: 1fr; gap: 44px; }
+}
+@media (max-width: 560px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .bar { flex-wrap: wrap; gap: 12px; }
+  .bar nav { margin-left: 0; width: 100%; gap: 16px; }
+  .bar nav .gh { margin-left: auto; }
+  .intro { padding-top: 28px; }
+  .lede { font-size: 16px; }
+  .tier { padding-top: 64px; }
+  .cmd { flex-direction: column; align-items: stretch; }
+  .player .caption { grid-template-columns: 1fr; }
+  .player .close { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 10px; }
+  .poster .play { width: 40px; height: 40px; top: 10px; right: 10px; }
+  .poster .play::after { left: 16px; top: 12px; border-width: 8px 0 8px 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .strip img, .poster .play { transition: none; }
+}
