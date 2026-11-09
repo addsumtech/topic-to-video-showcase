@@ -19,9 +19,9 @@ FILMS = [
     dict(tier='remotion', id='workbuddy-promo', lang='en',
          title=('WorkBuddy product film', 'WorkBuddy 产品宣传片'),
          kind=('Product promo', '产品宣传'),
-         note=('Tencent WorkBuddy’s desktop app rebuilt from its official screenshots, with five shots rendered in '
-               'Blender: the desk companion, a pile of files, a MacBook Air. Unofficial, not affiliated with Tencent.',
-               '照官网截图重建腾讯 WorkBuddy 的桌面端界面，另有五个镜头用 Blender 渲染：桌面小伙伴、一叠文件、MacBook Air。'
+         note=('Tencent WorkBuddy’s desktop app rebuilt from its official screenshots, with six shots rendered in '
+               'Blender: the desk companion, a pile of files, a MacBook Air, and the app itself on a MacBook screen. Unofficial, not affiliated with Tencent.',
+               '照官网截图重建腾讯 WorkBuddy 的桌面端界面，另有六个镜头用 Blender 渲染：桌面小伙伴、一叠文件、MacBook Air，以及显示在 MacBook 屏幕上的应用界面。'
                '非官方作品，与腾讯无关。')),
     dict(tier='remotion', id='topic-to-video-promo', lang='en',
          title=('topic-to-video launch film', 'topic-to-video 发布短片'),
