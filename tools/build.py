@@ -74,10 +74,11 @@ FILMS = [
     dict(cat='product', how='director', id='workbuddy-promo', lang='en',
          title=('WorkBuddy launch film', 'WorkBuddy 发布短片'),
          kind=('Product launch', '产品发布'),
-         note=('Tencent WorkBuddy’s desktop app, shown through its official screenshots: one sentence in, a plan, and '
-               'finished files out — a spreadsheet, a report, a dashboard. Unofficial, not affiliated with Tencent.',
-               '用官网截图展示腾讯 WorkBuddy 桌面端：一句话交代任务，它拆成计划，交回做好的文件——表格、报告、仪表盘。'
-               '非官方作品，与腾讯无关。')),
+         note=('Tencent WorkBuddy’s desktop app, from its official screenshots: the underscore at the end of its '
+               'wordmark becomes the film’s cursor, types one sentence, and the finished files come back — a '
+               'spreadsheet, a report, a dashboard. Unofficial, not affiliated with Tencent.',
+               '用官网截图展示腾讯 WorkBuddy 桌面端：字标末尾的下划线变成全片的光标，打出一句话任务，做好的文件随即交回——'
+               '表格、报告、仪表盘。非官方作品，与腾讯无关。')),
     dict(cat='product', how='remotion', id='topic-to-video-promo', lang='en',
          title=('topic-to-video launch film', 'topic-to-video 发布短片'),
          kind=('Launch film', '发布短片'),
