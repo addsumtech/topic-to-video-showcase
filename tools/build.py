@@ -15,74 +15,125 @@ SITE = 'https://video.addsum.top'
 REPO = 'https://github.com/addsumtech/topic-to-video'
 
 FILMS = [
-    # tier, id, language of the film, then en/zh title and note. Notes state only what the film shows.
-    dict(tier='remotion', id='workbuddy-promo', lang='en',
-         title=('WorkBuddy product film', 'WorkBuddy 产品宣传片'),
-         kind=('Product promo', '产品宣传'),
-         note=('Tencent WorkBuddy’s desktop app rebuilt from its official screenshots, with six shots rendered in '
-               'Blender: the desk companion, a pile of files, a MacBook Air, and the app itself on a MacBook screen. Unofficial, not affiliated with Tencent.',
-               '照官网截图重建腾讯 WorkBuddy 的桌面端界面，另有六个镜头用 Blender 渲染：桌面小伙伴、一叠文件、MacBook Air，以及显示在 MacBook 屏幕上的应用界面。'
-               '非官方作品，与腾讯无关。')),
-    dict(tier='remotion', id='topic-to-video-promo', lang='en',
-         title=('topic-to-video launch film', 'topic-to-video 发布短片'),
-         kind=('Launch film', '发布短片'),
-         note=('The skill’s own launch film. It plays real clips from other films on this page and shows the request '
-               'each one started from.',
-               '这个 skill 自己的发布片。片中播放的是本页其他影片的真实片段，也展示了每部片最初的那句请求。')),
-    dict(tier='remotion', id='slide-maker-promo', lang='en',
-         title=('slide-maker launch film', 'slide-maker 发布短片'),
-         kind=('Launch film', '发布短片'),
-         note=('A launch film for slide-maker, cut to its music. Every deck page on screen is a real page the tool '
-               'made, not a mock-up.',
-               '为 slide-maker 做的发布片，按配乐剪辑。画面里的每一页幻灯片都是这个工具真实做出来的，不是示意图。')),
-    dict(tier='remotion', id='grok-bot-explainer', lang='en',
-         title=('Grok Bot explained', 'Grok Bot 介绍'),
-         kind=('Product explainer', '产品介绍'),
-         note=('What Grok Bot does and where it stops, in 36 beats under three minutes. An independent explainer, '
-               'not affiliated with xAI.',
-               '用 36 个镜头、不到三分钟讲清 Grok Bot 能做什么、在哪里停手。独立制作的介绍片，与 xAI 无关。')),
-    dict(tier='remotion', id='anc-headphones', lang='en',
-         title=('How noise cancelling works', '主动降噪是怎么回事'),
+    # cat: 'explainer' | 'product'; how: 'director' | 'director3d' | 'remotion' | 'html'; lang of the film; en/zh title,
+    # kind and note. Notes state only what the film shows. Within a category, newest work first.
+    dict(cat='explainer', how='director3d', id='diamond-sparkle-3d', lang='zh',
+         title=('Why a diamond sparkles', '钻石为什么会闪闪发光'),
          kind=('Explainer', '科普讲解'),
-         note=('Sound as squeezed and stretched air, the flipped wave that cancels it, the two microphones in an '
-               'earbud and the tiny window of time they have to work in.',
-               '声音是被挤压又拉开的空气；反相的波把它抵消；耳机里的两只麦克风，以及它们只有极短的时间窗口。')),
-    dict(tier='remotion', id='job-hunt-promo', lang='zh',
-         title=('job-hunt product film', 'job-hunt 产品宣传片'),
-         kind=('Product promo', '产品宣传'),
-         note=('A promo for the job-hunt skill: finding roles, judging fit, tailoring a CV and rehearsing interviews. '
-               'The CV and reports on screen are a fictional example.',
-               '求职 skill job-hunt 的宣传片：找岗位、判断值不值得投、改简历、练面试。片中的简历和报告都是虚构示例。')),
-    dict(tier='html', id='qr-code-explainer', lang='zh',
+         note=('Light bends as it enters the stone, a critical angle of about 24° traps it, two reflections off the back '
+               'facets send it out the top, and dispersion splits it into colour. Every stone is rendered in Blender; '
+               'the coloured fire is real dispersion: the colour shots are each rendered three times, at diamond’s red, green '
+               'and blue refractive indices.',
+               '光进入钻石时拐弯，约 24° 的临界角把它困住，背面两次反射把它从顶面送回，色散再把它拆成彩色。每颗钻石都用 '
+               'Blender 渲染；画面里的火彩是真实的色散：彩色镜头都按钻石对红、绿、蓝光的三个折射率各渲染一遍再合成。')),
+    dict(cat='explainer', how='director', id='falling-cat', lang='zh',
+         title=('Why a falling cat lands on its feet', '猫为什么总能四脚着地'),
+         kind=('Explainer', '科普讲解'),
+         note=('A cat has nothing to push against in the air, yet it turns over: it folds into two halves and twists them '
+               'in turn, so its total rotation stays zero (the 1969 two-cylinder model). Drawn as a risograph print: spot inks, '
+               'halftone and paper grain.',
+               '猫在空中无处借力，却能翻过身来：它把身体折成前后两半，轮流收腿伸腿，总转动始终为零（1969 年的两节圆柱模型）。'
+               '画面是孔版印刷（risograph）风格：专色油墨、网点和纸张纹理。')),
+    dict(cat='explainer', how='director', id='sky-blue-sunset', lang='zh',
+         title=('Why the sky is blue and sunsets are red', '天空为什么是蓝的，晚霞为什么是红的'),
+         kind=('Explainer', '科普讲解'),
+         note=('Rayleigh scattering sends short wavelengths across the whole sky; why the sky is not violet; and why the '
+               'long, slanting path of evening light leaves only orange and red.',
+               '瑞利散射把短波长的光撒满整片天空；天为什么不是紫色；傍晚的阳光斜穿过长得多的大气，最后只剩下橙光和红光。')),
+    dict(cat='explainer', how='director', id='camera-lens', lang='en',
+         title=('How a lens makes a sharp image', '镜头怎样拍出清晰的照片'),
+         kind=('Explainer', '科普讲解'),
+         note=('One point of light, a pinhole, glass that slows one side of a beam, a cone of rays meeting again behind the '
+               'lens, and why only one distance can be exactly sharp.',
+               '从一个光点讲起：小孔成像、玻璃让光束一侧变慢而拐弯、一锥光线在镜头后重新会聚，以及为什么只有一个距离能完全清晰。')),
+    dict(cat='explainer', how='director', id='qr-torn-corner', lang='zh',
+         title=('Why a torn QR code still scans', '二维码撕掉一角为什么还能扫'),
+         kind=('Explainer', '科普讲解'),
+         note=('The finder squares, the mask, the codewords and Reed–Solomon error correction, shown on one real '
+               'version-2 code built for the film. Its tears were decoded on frames of the film itself.',
+               '定位方块、掩码、码字和里德-所罗门纠错，全部演示在一张为本片真实生成的 2 版二维码上。片中撕掉的几种情形，'
+               '都在成片的画面上实际解码验证过。')),
+    dict(cat='explainer', how='html', id='qr-code-explainer', lang='zh',
          title=('How a QR code is read', '二维码是怎么被读出来的'),
          kind=('Explainer', '科普讲解'),
          note=('Why tearing off one corner still scans and tearing the wrong spot does not. Every code on screen was '
                'generated for the film and checked with an independent decoder.',
                '为什么撕掉一角照样能扫，撕错地方就扫不出。片中每个二维码都是为这部片真实生成的，并用独立的解码器验证过。')),
-    dict(tier='html', id='mri-explainer', lang='en',
+    dict(cat='explainer', how='html', id='mri-explainer', lang='en',
          title=('How MRI makes an image', 'MRI 是怎么成像的'),
          kind=('Explainer', '科普讲解'),
          note=('An MRI scanner never takes a photograph: precession, relaxation, gradients and k-space. The k-space on '
                'screen is a Fourier transform computed for the film.',
                '磁共振从不拍照：进动、弛豫、梯度场和 k 空间。画面里的 k 空间是为这部片实际计算出的傅里叶变换。')),
+    dict(cat='explainer', how='remotion', id='anc-headphones', lang='en',
+         title=('How noise cancelling works', '主动降噪是怎么回事'),
+         kind=('Explainer', '科普讲解'),
+         note=('Sound as squeezed and stretched air, the flipped wave that cancels it, the two microphones in an '
+               'earbud and the tiny window of time they have to work in.',
+               '声音是被挤压又拉开的空气；反相的波把它抵消；耳机里的两只麦克风，以及它们只有极短的时间窗口。')),
+    dict(cat='product', how='director', id='workbuddy-promo', lang='en',
+         title=('WorkBuddy launch film', 'WorkBuddy 发布短片'),
+         kind=('Product launch', '产品发布'),
+         note=('Tencent WorkBuddy’s desktop app, shown through its official screenshots: one sentence in, a plan, and '
+               'finished files out — a spreadsheet, a report, a dashboard. Unofficial, not affiliated with Tencent.',
+               '用官网截图展示腾讯 WorkBuddy 桌面端：一句话交代任务，它拆成计划，交回做好的文件——表格、报告、仪表盘。'
+               '非官方作品，与腾讯无关。')),
+    dict(cat='product', how='remotion', id='topic-to-video-promo', lang='en',
+         title=('topic-to-video launch film', 'topic-to-video 发布短片'),
+         kind=('Launch film', '发布短片'),
+         note=('The skill’s own launch film. It plays real clips from other films on this page and shows the request '
+               'each one started from.',
+               '这个 skill 自己的发布片。片中播放的是本页其他影片的真实片段，也展示了每部片最初的那句请求。')),
+    dict(cat='product', how='remotion', id='slide-maker-promo', lang='en',
+         title=('slide-maker launch film', 'slide-maker 发布短片'),
+         kind=('Launch film', '发布短片'),
+         note=('A launch film for slide-maker, cut to its music. Every deck page on screen is a real page the tool '
+               'made, not a mock-up.',
+               '为 slide-maker 做的发布片，按配乐剪辑。画面里的每一页幻灯片都是这个工具真实做出来的，不是示意图。')),
+    dict(cat='product', how='remotion', id='grok-bot-explainer', lang='en',
+         title=('Grok Bot explained', 'Grok Bot 介绍'),
+         kind=('Product explainer', '产品介绍'),
+         note=('What Grok Bot does and where it stops, in 36 beats under three minutes. An independent explainer, '
+               'not affiliated with xAI.',
+               '用 36 个镜头、不到三分钟讲清 Grok Bot 能做什么、在哪里停手。独立制作的介绍片，与 xAI 无关。')),
+    dict(cat='product', how='remotion', id='job-hunt-promo', lang='zh',
+         title=('job-hunt product film', 'job-hunt 产品宣传片'),
+         kind=('Product promo', '产品宣传'),
+         note=('A promo for the job-hunt skill: finding roles, judging fit, tailoring a CV and rehearsing interviews. '
+               'The CV and reports on screen are a fictional example.',
+               '求职 skill job-hunt 的宣传片：找岗位、判断值不值得投、改简历、练面试。片中的简历和报告都是虚构示例。')),
 ]
+
+ZH_NUM = '零一二三四五六七八九十'
+
+
+def zh_count(n: int) -> str:
+    return ZH_NUM[n] if n <= 10 else ('十' + ZH_NUM[n - 10] if n < 20 else str(n))
+
 
 T = {
     'en': dict(
         htmllang='en', path='/', other='/cn/', other_label='中文',
         title='topic-to-video films',
-        desc='Eight short films made by topic-to-video, an AI skill that turns a topic into a narrated video.',
+        desc=f'{len(FILMS)} short films made by topic-to-video, an AI skill that turns a topic into a narrated video.',
         h1='Films made from a single request',
         lede=('Each film began as one request in a chat. topic-to-video researched the subject, wrote and voiced the '
               'script, designed every shot and rendered the video. No frame was animated by hand.'),
+        how_h='How they are made',
+        how=[('Director', 'The default: research and script first, the voice recorded before any picture, one look '
+                          'chosen for the whole film, built sequence by sequence as web pages captured in headless '
+                          'Chrome, with real 3D from Blender where the subject needs it.'),
+             ('Remotion', 'Each shot is a React component rendered frame by frame, picked from a library of 227 shot '
+                          'designs or built for the film; heavier 3D shots rendered in Blender.'),
+             ('HTML', 'Each beat is a web page built for the film, animated in headless Chrome and captured frame by '
+                      'frame. Chrome is all it needs.')],
+        how_tag={'director': 'Director', 'director3d': 'Director · Blender 3D', 'remotion': 'Remotion', 'html': 'HTML'},
         github='View on GitHub',
-        tiers={
-            'remotion': ('Remotion films',
-                         'Each shot is a React component rendered frame by frame with Remotion, picked from a library '
-                         'of 225 shot designs or built for the film. Heavier 3D shots are rendered in Blender.'),
-            'html': ('HTML films',
-                     'Each beat is a web page built for the film, animated in headless Chrome and captured frame by '
-                     'frame. Chrome is all it needs.'),
+        cats={
+            'explainer': ('Explainers', 'Science and how-things-work films: one question, answered with the real '
+                                        'mechanism, every number traced to a source.'),
+            'product': ('Product films', 'Launch and promo films for real products, built from the products’ own '
+                                         'screens and assets.'),
         },
         langname={'en': 'English', 'zh': 'Chinese'},
         play='Play', close='Close',
@@ -93,15 +144,20 @@ T = {
     'zh': dict(
         htmllang='zh-CN', path='/cn/', other='/', other_label='English',
         title='topic-to-video 影片集',
-        desc='topic-to-video 做的八部短片。它是一个把任意主题做成配音讲解视频的 AI skill。',
+        desc=f'topic-to-video 做的{zh_count(len(FILMS))}部短片。它是一个把任意主题做成配音讲解视频的 AI skill。',
         h1='一句话请求做成的影片',
         lede='每部片都从聊天里的一句请求开始。topic-to-video 查资料、写稿、配音、设计每个镜头并渲染成片，没有一帧是手工做动画。',
+        how_h='怎么做出来的',
+        how=[('导演式', '默认方式：先查资料、写稿，先录好配音再做画面，整部片选定一种视觉风格，按段落逐段搭建成网页、在无头 Chrome '
+                        '里逐帧截取；题材需要时用 Blender 渲染真实 3D。'),
+             ('Remotion', '每个镜头是一个 React 组件，用 Remotion 逐帧渲染；从 227 个镜头设计里挑选，或者为这部片新做，'
+                          '较重的 3D 镜头交给 Blender 渲染。'),
+             ('HTML', '每一段是为这部片写的网页，在无头 Chrome 里播放动画并逐帧截取。只需要 Chrome。')],
+        how_tag={'director': '导演式', 'director3d': '导演式 · Blender 3D', 'remotion': 'Remotion', 'html': 'HTML'},
         github='在 GitHub 查看',
-        tiers={
-            'remotion': ('Remotion 分支',
-                         '每个镜头是一个 React 组件，用 Remotion 逐帧渲染；从 225 个镜头设计里挑选，或者为这部片新做。'
-                         '较重的 3D 镜头交给 Blender 渲染。'),
-            'html': ('HTML 分支', '每一段是为这部片写的网页，在无头 Chrome 里播放动画并逐帧截取。只需要 Chrome。'),
+        cats={
+            'explainer': ('讲解视频', '科普与原理讲解：一个问题，用真实的机制讲清楚，每个数字都有出处。'),
+            'product': ('产品宣传视频', '为真实产品做的发布与宣传片，用的是产品自己的界面和素材。'),
         },
         langname={'en': '英文', 'zh': '中文'},
         play='播放', close='关闭',
@@ -131,18 +187,19 @@ def page(lang: str, lengths: dict) -> str:
         return f['title'][i]
 
     strip = '\n'.join(
-        f'<a class="frame {f["tier"]}" href="#{f["id"]}" data-film="{f["id"]}" aria-label="{e(t["play"])}: {e(film_title(f))}">'
+        f'<a class="frame {f["cat"]}" href="#{f["id"]}" data-film="{f["id"]}" aria-label="{e(t["play"])}: {e(film_title(f))}">'
         f'<img src="{up}posters/{f["id"]}.jpg" alt="" width="1280" height="720" loading="eager"></a>'
         for f in FILMS)
 
     sections = []
-    for tier in ('remotion', 'html'):
-        name, blurb = t['tiers'][tier]
+    for tier in ('explainer', 'product'):
+        name, blurb = t['cats'][tier]
         cards = []
         for f in FILMS:
-            if f['tier'] != tier:
+            if f['cat'] != tier:
                 continue
-            meta = f'{e(f["kind"][i])}, {e(t["langname"][f["lang"]])}, {lengths[f["id"]]}'
+            meta = (f'{e(f["kind"][i])}, {e(t["how_tag"][f["how"]])}, {e(t["langname"][f["lang"]])}, '
+                    f'{lengths[f["id"]]}')
             cards.append(
                 f'<article class="film" id="{f["id"]}">'
                 f'<button class="poster" type="button" data-film="{f["id"]}" aria-label="{e(t["play"])}: {e(film_title(f))}">'
@@ -182,7 +239,7 @@ def page(lang: str, lengths: dict) -> str:
 <header class="bar wrap">
   <a class="brand" href="{t["path"]}"><img src="{up}favicon.svg" alt="" width="28" height="28"><span>topic-to-video</span></a>
   <nav>
-    <a href="#remotion">Remotion</a><a href="#html">HTML</a>
+    <a href="#explainer">{e(t["cats"]["explainer"][0])}</a><a href="#product">{e(t["cats"]["product"][0])}</a>
     <a class="lang" href="{up if lang == "zh" else ""}{t["other"].lstrip("/")}" hreflang="{"zh-CN" if lang == "en" else "en"}">{t["other_label"]}</a>
     <a class="gh" href="{REPO}">{e(t["github"])}</a>
   </nav>
@@ -192,8 +249,12 @@ def page(lang: str, lengths: dict) -> str:
     <h1>{e(t["h1"])}</h1>
     <p class="lede">{e(t["lede"])}</p>
   </div>
-  <nav class="strip" aria-label="Films">{strip}</nav>
+  <nav class="strip" aria-label="Films" style="--n: {len(FILMS)}">{strip}</nav>
   <div class="wrap">{"".join(sections)}</div>
+  <section class="how wrap" aria-labelledby="how-h">
+    <h2 id="how-h">{e(t["how_h"])}</h2>
+    <dl>{"".join(f"<dt>{e(k)}</dt><dd>{e(v)}</dd>" for k, v in t["how"])}</dl>
+  </section>
   <section class="make wrap" aria-labelledby="make-h">
     <h2 id="make-h">{e(t["make_h"])}</h2>
     <p>{e(t["make_p"])}</p>
