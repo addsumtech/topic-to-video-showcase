@@ -4,6 +4,7 @@
 Run from anywhere: python3 tools/build.py. Every film listed must have films/<id>.mp4 and posters/<id>.jpg;
 the build stops if one is missing, so a page never links a film that is not in the repo.
 """
+import hashlib
 import html
 import json
 import subprocess
@@ -174,6 +175,12 @@ T = {
 INSTALL = 'git clone --depth 1 https://github.com/addsumtech/topic-to-video.git ~/.claude/skills/topic-to-video'
 
 
+def ver(rel: str) -> str:
+    """`rel?v=<content hash>`: the site is cached for 10 minutes under one URL, so a replaced film or poster would show
+    the old file until then; a new hash is a new URL."""
+    return rel + '?v=' + hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
+
+
 def duration(p: Path) -> str:
     out = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', str(p)],
                          capture_output=True, text=True, check=True).stdout.strip()
@@ -192,7 +199,7 @@ def page(lang: str, lengths: dict) -> str:
 
     strip = '\n'.join(
         f'<a class="frame {f["cat"]}" href="#{f["id"]}" data-film="{f["id"]}" aria-label="{e(t["play"])}: {e(film_title(f))}">'
-        f'<img src="{up}posters/{f["id"]}.jpg" alt="" width="1280" height="720" loading="eager"></a>'
+        f'<img src="{up}{ver(f'posters/{f["id"]}.jpg')}" alt="" width="1280" height="720" loading="eager"></a>'
         for f in FILMS)
 
     sections = []
@@ -207,7 +214,7 @@ def page(lang: str, lengths: dict) -> str:
             cards.append(
                 f'<article class="film" id="{f["id"]}">'
                 f'<button class="poster" type="button" data-film="{f["id"]}" aria-label="{e(t["play"])}: {e(film_title(f))}">'
-                f'<img src="{up}posters/{f["id"]}.jpg" alt="" width="1280" height="720" loading="lazy">'
+                f'<img src="{up}{ver(f'posters/{f["id"]}.jpg')}" alt="" width="1280" height="720" loading="lazy">'
                 f'<span class="play" aria-hidden="true"></span></button>'
                 f'<h3>{e(film_title(f))}</h3><p class="meta">{meta}</p><p class="note">{e(f["note"][i])}</p></article>')
         sections.append(
@@ -215,8 +222,8 @@ def page(lang: str, lengths: dict) -> str:
             f'<div class="tier-head"><h2 id="{tier}-h">{e(name)}</h2><p>{e(blurb)}</p></div>'
             f'<div class="films">{"".join(cards)}</div></section>')
 
-    data = {f['id']: dict(title=film_title(f), note=f['note'][i], src=f'{up}films/{f["id"]}.mp4',
-                          poster=f'{up}posters/{f["id"]}.jpg') for f in FILMS}
+    data = {f['id']: dict(title=film_title(f), note=f['note'][i], src=up + ver(f'films/{f["id"]}.mp4'),
+                          poster=up + ver(f'posters/{f["id"]}.jpg')) for f in FILMS}
 
     return f'''<!doctype html>
 <html lang="{t["htmllang"]}">
@@ -231,7 +238,7 @@ def page(lang: str, lengths: dict) -> str:
 <meta property="og:type" content="website">
 <meta property="og:title" content="{e(t["title"])}">
 <meta property="og:description" content="{e(t["desc"])}">
-<meta property="og:image" content="{SITE}/posters/{FILMS[0]["id"]}.jpg">
+<meta property="og:image" content="{SITE}/{ver(f'posters/{FILMS[0]["id"]}.jpg')}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{up}favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
