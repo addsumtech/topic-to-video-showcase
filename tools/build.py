@@ -49,10 +49,11 @@ FILMS = [
     dict(cat='explainer', how='director', id='qr-torn-corner', lang='zh',
          title=('Why a torn QR code still scans', '二维码撕掉一角为什么还能扫'),
          kind=('Explainer', '科普讲解'),
-         note=('The finder squares, the mask, the codewords and Reed–Solomon error correction, shown on one real '
-               'version-2 code built for the film. Its tears were decoded on frames of the film itself.',
-               '定位方块、掩码、码字和里德-所罗门纠错，全部演示在一张为本片真实生成的 2 版二维码上。片中撕掉的几种情形，'
-               '都在成片的画面上实际解码验证过。')),
+         note=('Codewords, Reed–Solomon error correction and the finder marks, shown on one real version-2 code built '
+               'for the film. Every tear it shows, the one that still scans and the ones that do not, was checked with '
+               'a real decoder.',
+               '码字、里德-所罗门纠错和定位标记，全部演示在一张为本片真实生成的 2 版二维码上。片中每一种撕法，'
+               '扫得出的和扫不出的，都用真实的解码器验证过。')),
     dict(cat='explainer', how='html', id='qr-code-explainer', lang='zh',
          title=('How a QR code is read', '二维码是怎么被读出来的'),
          kind=('Explainer', '科普讲解'),
@@ -91,12 +92,14 @@ FILMS = [
          note=('A launch film for slide-maker, cut to its music. Every deck page on screen is a real page the tool '
                'made, not a mock-up.',
                '为 slide-maker 做的发布片，按配乐剪辑。画面里的每一页幻灯片都是这个工具真实做出来的，不是示意图。')),
-    dict(cat='product', how='remotion', id='grok-bot-explainer', lang='en',
-         title=('Grok Bot explained', 'Grok Bot 介绍'),
-         kind=('Product explainer', '产品介绍'),
-         note=('What Grok Bot does and where it stops, in 36 beats under three minutes. An independent explainer, '
-               'not affiliated with xAI.',
-               '用 36 个镜头、不到三分钟讲清 Grok Bot 能做什么、在哪里停手。独立制作的介绍片，与 xAI 无关。')),
+    dict(cat='product', how='director', id='grok-bot-explainer', lang='en',
+         title=('Grok Bot launch film', 'Grok Bot 发布短片'),
+         kind=('Product launch', '产品发布'),
+         note=('You close the lid and Grok Bot’s Bots keep working through the night on their own cloud computer; at '
+               '7:58 AM the work is waiting on your phone. The phone and app screens follow the official screenshots; '
+               'the files and emails on them are demo content. Independent, not affiliated with xAI.',
+               '合上笔记本，Grok Bot 的 Bot 们在自己的云端电脑上通宵干活；早上 7:58，做好的事已经在手机上等你。'
+               '手机和应用界面按官方截图还原，界面里的文件和邮件是示例内容。独立制作，与 xAI 无关。')),
     dict(cat='product', how='remotion', id='job-hunt-promo', lang='zh',
          title=('job-hunt product film', 'job-hunt 产品宣传片'),
          kind=('Product promo', '产品宣传'),
