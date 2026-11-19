@@ -55,12 +55,16 @@ FILMS = [
                'a real decoder.',
                '码字、里德-所罗门纠错和定位标记，全部演示在一张为本片真实生成的 2 版二维码上。片中每一种撕法，'
                '扫得出的和扫不出的，都用真实的解码器验证过。')),
-    dict(cat='explainer', how='html', id='mri-explainer', lang='en',
-         title=('How MRI makes an image', 'MRI 是怎么成像的'),
+    dict(cat='explainer', how='director3d', id='mri-explainer', lang='en',
+         title=('How an MRI scanner makes a picture', 'MRI 是怎么拍出身体内部的'),
          kind=('Explainer', '科普讲解'),
-         note=('An MRI scanner never takes a photograph: precession, relaxation, gradients and k-space. The k-space on '
-               'screen is a Fourier transform computed for the film.',
-               '磁共振从不拍照：进动、弛豫、梯度场和 k 空间。画面里的 k 空间是为这部片实际计算出的傅里叶变换。')),
+         note=('No X-rays: up to 60% of you is water, each hydrogen proton is a tiny magnet wobbling about 64 million '
+               'times a second at 1.5 tesla, a radio pulse at that pitch tips them over, and the echo they give back '
+               'becomes the picture. Each row of a real brain slice sings its own pitch, and the chord is split back '
+               'into rows to rebuild the slice. The scanner is rendered in Blender.',
+               '没有 X 射线：人体最多六成是水，每个氢原子核都是一块小磁铁，在 1.5 特斯拉下每秒摆动约 6400 万次；'
+               '同频的射频脉冲把它们推倒，它们回响的信号就变成了图像。一张真实脑切片的每一行唱出自己的音高，'
+               '和弦再被拆回各行，重建出这张切片。扫描仪用 Blender 渲染。')),
     dict(cat='explainer', how='remotion', id='anc-headphones', lang='en',
          title=('How noise cancelling works', '主动降噪是怎么回事'),
          kind=('Explainer', '科普讲解'),
@@ -75,12 +79,14 @@ FILMS = [
                'spreadsheet, a report, a dashboard. Unofficial, not affiliated with Tencent.',
                '用官网截图展示腾讯 WorkBuddy 桌面端：字标末尾的下划线变成全片的光标，打出一句话任务，做好的文件随即交回——'
                '表格、报告、仪表盘。非官方作品，与腾讯无关。')),
-    dict(cat='product', how='remotion', id='topic-to-video-promo', lang='en',
+    dict(cat='product', how='director', id='topic-to-video-promo', lang='en',
          title=('topic-to-video launch film', 'topic-to-video 发布短片'),
          kind=('Launch film', '发布短片'),
-         note=('The skill’s own launch film. It plays real clips from other films on this page and shows the request '
-               'each one started from.',
-               '这个 skill 自己的发布片。片中播放的是本页其他影片的真实片段，也展示了每部片最初的那句请求。')),
+         note=('The skill’s own launch film. It plays real clips from other films on this page and follows one '
+               'request typed into Claude Code through research, script and voice, building, checking and a one-line '
+               'revision. The film itself began with that same request.',
+               '这个 skill 自己的发布片。片中播放的是本页其他影片的真实片段，并跟着一句在 Claude Code 里打出的请求，'
+               '走过调研、脚本和配音、制作、检查，以及一句话的修改。这部片本身就是从这句请求开始的。')),
     dict(cat='product', how='remotion', id='slide-maker-promo', lang='en',
          title=('slide-maker launch film', 'slide-maker 发布短片'),
          kind=('Launch film', '发布短片'),
@@ -95,12 +101,16 @@ FILMS = [
                'the files and emails on them are demo content. Independent, not affiliated with xAI.',
                '合上笔记本，Grok Bot 的 Bot 们在自己的云端电脑上通宵干活；早上 7:58，做好的事已经在手机上等你。'
                '手机和应用界面按官方截图还原，界面里的文件和邮件是示例内容。独立制作，与 xAI 无关。')),
-    dict(cat='product', how='remotion', id='job-hunt-promo', lang='zh',
-         title=('job-hunt product film', 'job-hunt 产品宣传片'),
-         kind=('Product promo', '产品宣传'),
-         note=('A promo for the job-hunt skill: finding roles, judging fit, tailoring a CV and rehearsing interviews. '
-               'The CV and reports on screen are a fictional example.',
-               '求职 skill job-hunt 的宣传片：找岗位、判断值不值得投、改简历、练面试。片中的简历和报告都是虚构示例。')),
+    dict(cat='product', how='director', id='job-hunt-promo', lang='zh',
+         title=('job-hunt launch film', 'job-hunt 发布短片'),
+         kind=('Product launch', '产品发布'),
+         note=('job-hunt, an open-source job-search skill for Claude Code and Codex, runs a whole job search, and every '
+               'line it writes into your CV traces back to something you actually did: a thread from its logo ties '
+               'each line to its source, and made-up ones are struck out. The Claude Code, Codex and shell windows '
+               'are recorded from the real programs; the postings and CV on screen are demo content.',
+               '开源求职 skill job-hunt（支持 Claude Code 和 Codex）替你跑完整个求职流程，它写进简历的每一句都能追溯到你真做过的事：'
+               '一根从 logo 里抽出的线把每一句连回出处，编造的句子被划掉。片中的 Claude Code、Codex 和终端窗口都录自真实程序；'
+               '屏幕上的岗位和简历是示例内容。')),
 ]
 
 ZH_NUM = '零一二三四五六七八九十'
