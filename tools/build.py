@@ -55,12 +55,6 @@ FILMS = [
                'a real decoder.',
                '码字、里德-所罗门纠错和定位标记，全部演示在一张为本片真实生成的 2 版二维码上。片中每一种撕法，'
                '扫得出的和扫不出的，都用真实的解码器验证过。')),
-    dict(cat='explainer', how='html', id='qr-code-explainer', lang='zh',
-         title=('How a QR code is read', '二维码是怎么被读出来的'),
-         kind=('Explainer', '科普讲解'),
-         note=('Why tearing off one corner still scans and tearing the wrong spot does not. Every code on screen was '
-               'generated for the film and checked with an independent decoder.',
-               '为什么撕掉一角照样能扫，撕错地方就扫不出。片中每个二维码都是为这部片真实生成的，并用独立的解码器验证过。')),
     dict(cat='explainer', how='html', id='mri-explainer', lang='en',
          title=('How MRI makes an image', 'MRI 是怎么成像的'),
          kind=('Explainer', '科普讲解'),

@@ -2,9 +2,9 @@
 
 The showcase site for [topic-to-video](https://github.com/addsumtech/topic-to-video), served by GitHub Pages at <https://video.addsum.top> (Chinese at `/cn/`).
 
-It shows thirteen films the skill made, in two sections:
+It shows twelve films the skill made, in two sections:
 
-- **Explainers**: why a diamond sparkles (rendered in Blender 3D), why a falling cat lands on its feet, why the sky is blue and sunsets red, how a lens makes a sharp image, two QR-code films, MRI, noise cancelling.
+- **Explainers**: why a diamond sparkles (rendered in Blender 3D), why a falling cat lands on its feet, why the sky is blue and sunsets red, how a lens makes a sharp image, a QR-code film, MRI, noise cancelling.
 - **Product films**: WorkBuddy, topic-to-video, slide-maker, Grok Bot, job-hunt.
 
 Each card says how the film was made: **Director** (the skill's current default: research and voice first, one look for the whole film, built sequence by sequence, with Blender 3D where needed), **Remotion** (a React component per shot from the shot library), or **HTML** (a web page per beat captured in headless Chrome).
