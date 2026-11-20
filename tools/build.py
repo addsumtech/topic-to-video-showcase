@@ -18,6 +18,16 @@ REPO = 'https://github.com/addsumtech/topic-to-video'
 FILMS = [
     # cat: 'explainer' | 'product'; how: 'director' | 'director3d' | 'remotion' | 'html'; lang of the film; en/zh title,
     # kind and note. Notes state only what the film shows. Within a category, newest work first.
+    dict(cat='explainer', how='director', id='shenzhen-border-town', lang='zh',
+         title=('How Shenzhen grew from a border town into a megacity', '深圳是怎么从边境小镇变成超大城市的'),
+         kind=('Explainer', '科普讲解'),
+         note=('310,000 people in 1979, 18.24 million by the end of 2025. The Shenzhen River and Hong Kong on its far bank, '
+               'the 49 km special economic zone drawn along it in 1980, factories crossing the river, and China’s first '
+               'land auction in 1987. Told with real material: Landsat satellite images from 1979 to 2025, a night '
+               'photograph from the space station and photographs of the place, every number sourced.',
+               '1979 年只有 31 万人，到 2025 年底住着 1824 万人。隔着深圳河的香港、1980 年沿河划出的 49 公里经济特区、'
+               '过河的工厂，以及 1987 年新中国第一次土地拍卖。全片用真实材料讲述：1979 到 2025 年的 Landsat 卫星影像、'
+               '国际空间站拍摄的夜景和当地的照片，每个数字都有出处。')),
     dict(cat='explainer', how='director3d', id='diamond-sparkle-3d', lang='zh',
          title=('Why a diamond sparkles', '钻石为什么会闪闪发光'),
          kind=('Explainer', '科普讲解'),
