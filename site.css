@@ -55,6 +55,10 @@ h1 { margin: 0 0 18px; max-width: 14em; font-size: clamp(36px, 5.4vw, 68px); lin
 .films { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 40px; }
 .film h3 { margin: 18px 0 2px; font-size: 21px; letter-spacing: -.015em; font-weight: 600; }
 .film .meta { margin: 0 0 8px; font-size: 14px; color: var(--tier); font-weight: 500; }
+.film .meta .tag { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 999px; font-size: 12.5px;
+  font-weight: 600; line-height: 1.6; vertical-align: 1px; border: 1px solid var(--tier); }
+.film .meta .tag.voice { background: var(--tier); color: var(--table); }
+.film .meta .tag.music { background: transparent; color: var(--tier); }
 .film .note { margin: 0; max-width: 36em; color: var(--mute); font-size: 15.5px; }
 .poster { position: relative; display: block; width: 100%; padding: 0; border: 0; border-radius: 6px; overflow: hidden;
   background: var(--ink); cursor: pointer; aspect-ratio: 16 / 9; }

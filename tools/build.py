@@ -18,6 +18,8 @@ REPO = 'https://github.com/addsumtech/topic-to-video'
 FILMS = [
     # cat: 'explainer' | 'product'; how: 'director' | 'director3d' | 'remotion' | 'html'; lang of the film; en/zh title,
     # kind and note. Notes state only what the film shows. Within a category, newest work first.
+    # voice: False for a film with no voice-over (type and music only); every other film is narrated (measured
+    # 2026-11-24 by transcribing each film's audio). Shown as a tag on its card.
     dict(cat='explainer', how='director', id='shenzhen-border-town', lang='zh',
          title=('How Shenzhen grew from a border town into a megacity', '深圳是怎么从边境小镇变成超大城市的'),
          kind=('Explainer', '科普讲解'),
@@ -81,6 +83,16 @@ FILMS = [
          note=('Sound as squeezed and stretched air, the flipped wave that cancels it, the two microphones in an '
                'earbud and the tiny window of time they have to work in.',
                '声音是被挤压又拉开的空气；反相的波把它抵消；耳机里的两只麦克风，以及它们只有极短的时间窗口。')),
+    dict(cat='product', how='director', id='workbuddy-promo-30s', lang='en', voice=False,
+         title=('WorkBuddy in 30 seconds', 'WorkBuddy 30 秒宣传片'),
+         kind=('Product promo', '产品宣传片'),
+         note=('A 30-second promo told in type and music, with no voice-over. It stays inside WorkBuddy’s real desktop '
+               'app, from its official screenshots: one typed sentence comes back as a finished research package (a '
+               'dashboard, a spreadsheet, a report), several tasks run at once, and a daily AI news briefing runs on a '
+               'schedule. The task and files on screen are the docs’ own demo. Unofficial, not affiliated with Tencent.',
+               '一部 30 秒宣传短片，只有文字和配乐，没有旁白。全片都在 WorkBuddy 真实的桌面端界面里（依据官方截图）：'
+               '打出一句话，交回一整套做好的调研成果——仪表盘、表格、报告；多个任务同时跑；每天定时生成 AI 新闻简报。'
+               '屏幕上的任务和文件是官方文档自带的示例。非官方作品，与腾讯无关。')),
     dict(cat='product', how='director', id='workbuddy-promo', lang='en',
          title=('WorkBuddy launch film', 'WorkBuddy 发布短片'),
          kind=('Product launch', '产品发布'),
@@ -136,8 +148,9 @@ T = {
         title='topic-to-video films',
         desc=f'{len(FILMS)} short films made by topic-to-video, an AI skill that turns a topic into a narrated video.',
         h1='Films made from a single request',
-        lede=('Each film began as one request in a chat. topic-to-video researched the subject, wrote and voiced the '
-              'script, designed every shot and rendered the video. No frame was animated by hand.'),
+        lede=('Each film began as one request in a chat. topic-to-video researched the subject, wrote the script and '
+              'voiced it (where the film is narrated), designed every shot and rendered the video. No frame was '
+              'animated by hand.'),
         how_h='How they are made',
         how=[('Director', 'The default: research and script first, the voice recorded before any picture, one look '
                           'chosen for the whole film, built sequence by sequence as web pages captured in headless '
@@ -155,6 +168,7 @@ T = {
                                          'screens and assets.'),
         },
         langname={'en': 'English', 'zh': 'Chinese'},
+        voice_tag=('Voice-over', 'Music only'),
         play='Play', close='Close',
         make_h='Make one', make_p='Install the skill in Claude Code, then ask it for a video about your topic.',
         copy='Copy', copied='Copied',
@@ -165,7 +179,7 @@ T = {
         title='topic-to-video 影片集',
         desc=f'topic-to-video 做的{zh_count(len(FILMS))}部短片。它是一个把任意主题做成配音讲解视频的 AI skill。',
         h1='一句话请求做成的影片',
-        lede='每部片都从聊天里的一句请求开始。topic-to-video 查资料、写稿、配音、设计每个镜头并渲染成片，没有一帧是手工做动画。',
+        lede='每部片都从聊天里的一句请求开始。topic-to-video 查资料、写稿、配音（有旁白的片子）、设计每个镜头并渲染成片，没有一帧是手工做动画。',
         how_h='怎么做出来的',
         how=[('导演式', '默认方式：先查资料、写稿，先录好配音再做画面，整部片选定一种视觉风格，按段落逐段搭建成网页、在无头 Chrome '
                         '里逐帧截取；题材需要时用 Blender 渲染真实 3D。'),
@@ -179,6 +193,7 @@ T = {
             'product': ('产品宣传视频', '为真实产品做的发布与宣传片，用的是产品自己的界面和素材。'),
         },
         langname={'en': '英文', 'zh': '中文'},
+        voice_tag=('有声讲解', '纯配乐'),
         play='播放', close='关闭',
         make_h='自己做一部', make_p='把这个 skill 装进 Claude Code，然后告诉它你想讲的主题。',
         copy='复制', copied='已复制',
@@ -223,7 +238,10 @@ def page(lang: str, lengths: dict) -> str:
         for f in FILMS:
             if f['cat'] != tier:
                 continue
-            meta = (f'{e(f["kind"][i])}, {e(t["how_tag"][f["how"]])}, {e(t["langname"][f["lang"]])}, '
+            voiced = f.get('voice', True)
+            tag = (f'<span class="tag {"voice" if voiced else "music"}">'
+                   f'{e(t["voice_tag"][0 if voiced else 1])}</span>')
+            meta = (f'{tag}{e(f["kind"][i])}, {e(t["how_tag"][f["how"]])}, {e(t["langname"][f["lang"]])}, '
                     f'{lengths[f["id"]]}')
             cards.append(
                 f'<article class="film" id="{f["id"]}">'
