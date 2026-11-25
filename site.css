@@ -6,12 +6,13 @@
   --line: #cfd5db;
   --remotion: #3446c9;
   --html: #0e7468;
+  --tutorial: #a14f00;
   --tier: var(--ink);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --table: #1a1e23; --sheet: #22272d; --ink: #eef1f4; --mute: #a3acb6; --line: #343b43;
-    --remotion: #8d9cff; --html: #5cc8b6;
+    --remotion: #8d9cff; --html: #5cc8b6; --tutorial: #f3a756;
   }
 }
 * { box-sizing: border-box; }
@@ -113,6 +114,7 @@ footer { padding-top: 48px; padding-bottom: 48px; color: var(--mute); font-size:
 }
 .explainer { --tier: var(--remotion); }
 .product { --tier: var(--html); }
+.tutorial { --tier: var(--tutorial); }
 .how { padding-top: 88px; }
 .how h2 { margin: 0 0 16px; font-size: 22px; letter-spacing: -.01em; }
 .how dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 24px; margin: 0; max-width: 62em; }

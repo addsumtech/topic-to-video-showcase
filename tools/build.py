@@ -16,7 +16,8 @@ SITE = 'https://video.addsum.top'
 REPO = 'https://github.com/addsumtech/topic-to-video'
 
 FILMS = [
-    # cat: 'explainer' | 'product'; how: 'director' | 'director3d' | 'remotion' | 'html'; lang of the film; en/zh title,
+    # cat: 'explainer' | 'tutorial' | 'product'; how: 'director' | 'director3d' | 'director_rec' | 'remotion' | 'html';
+    # lang of the film; en/zh title,
     # kind and note. Notes state only what the film shows. Within a category, newest work first.
     # voice: False for a film with no voice-over (type and music only); every other film is narrated (measured
     # 2026-11-24 by transcribing each film's audio). Shown as a tag on its card.
@@ -83,6 +84,18 @@ FILMS = [
          note=('Sound as squeezed and stretched air, the flipped wave that cancels it, the two microphones in an '
                'earbud and the tiny window of time they have to work in.',
                '声音是被挤压又拉开的空气；反相的波把它抵消；耳机里的两只麦克风，以及它们只有极短的时间窗口。')),
+    dict(cat='tutorial', how='director_rec', id='numbers-chart-tutorial', lang='en',
+         title=('Make a chart in Numbers', '在 Numbers 里做一张图表'),
+         kind=('Software tutorial', '软件操作教程'),
+         note=('Turn a table into a column chart in Apple Numbers: select the cells, Chart, 2D, the column chart, a chart '
+               'style, a title; then change one number and the chart follows. Every click, Shift-click and keystroke is '
+               'recorded from the real Numbers app, driven step by step, then edited to the voice: each click lands on '
+               'the word that names it, the camera follows it, the clicks and keys are heard, and the subtitles sit on the '
+               'sheet’s own empty canvas. The café figures are demo data.',
+               '在苹果 Numbers 里把一张表格做成柱状图：选中单元格，点「图表」、2D、柱状图，换图表样式，加标题；'
+               '再改一个数字，图表跟着变。片中每一次点击、Shift 点按和每一个按键，都是在真实的 Numbers 里一步步操作并录下来的，'
+               '再按旁白剪辑：每次点击落在说到它的那个词上，镜头跟着操作走，点击和打字有声音，字幕放在表格自己的空白画布上。'
+               '咖啡馆的数字是示例数据。')),
     dict(cat='product', how='director', id='workbuddy-promo-30s', lang='en', voice=False,
          title=('WorkBuddy in 30 seconds', 'WorkBuddy 30 秒宣传片'),
          kind=('Product promo', '产品宣传片'),
@@ -159,11 +172,14 @@ T = {
                           'designs or built for the film; heavier 3D shots rendered in Blender.'),
              ('HTML', 'Each beat is a web page built for the film, animated in headless Chrome and captured frame by '
                       'frame. Chrome is all it needs.')],
-        how_tag={'director': 'Director', 'director3d': 'Director · Blender 3D', 'remotion': 'Remotion', 'html': 'HTML'},
+        how_tag={'director': 'Director', 'director3d': 'Director · Blender 3D', 'director_rec': 'Director · real app recording',
+                 'remotion': 'Remotion', 'html': 'HTML'},
         github='View on GitHub',
         cats={
             'explainer': ('Explainers', 'Science and how-things-work films: one question, answered with the real '
                                         'mechanism, every number traced to a source.'),
+            'tutorial': ('Tutorials', 'Software how-tos: the steps recorded from the real app, driven click by click, '
+                                      'and edited as a lesson to the voice.'),
             'product': ('Product films', 'Launch and promo films for real products, built from the products’ own '
                                          'screens and assets.'),
         },
@@ -186,10 +202,12 @@ T = {
              ('Remotion', '每个镜头是一个 React 组件，用 Remotion 逐帧渲染；从 227 个镜头设计里挑选，或者为这部片新做，'
                           '较重的 3D 镜头交给 Blender 渲染。'),
              ('HTML', '每一段是为这部片写的网页，在无头 Chrome 里播放动画并逐帧截取。只需要 Chrome。')],
-        how_tag={'director': '导演式', 'director3d': '导演式 · Blender 3D', 'remotion': 'Remotion', 'html': 'HTML'},
+        how_tag={'director': '导演式', 'director3d': '导演式 · Blender 3D', 'director_rec': '导演式 · 真实软件录屏',
+                 'remotion': 'Remotion', 'html': 'HTML'},
         github='在 GitHub 查看',
         cats={
             'explainer': ('讲解视频', '科普与原理讲解：一个问题，用真实的机制讲清楚，每个数字都有出处。'),
+            'tutorial': ('操作教程', '软件怎么用：在真实软件里一步步点按、录下操作，再按旁白剪成一节课。'),
             'product': ('产品宣传视频', '为真实产品做的发布与宣传片，用的是产品自己的界面和素材。'),
         },
         langname={'en': '英文', 'zh': '中文'},
@@ -232,7 +250,7 @@ def page(lang: str, lengths: dict) -> str:
         for f in FILMS)
 
     sections = []
-    for tier in ('explainer', 'product'):
+    for tier in ('explainer', 'tutorial', 'product'):
         name, blurb = t['cats'][tier]
         cards = []
         for f in FILMS:
@@ -282,7 +300,7 @@ def page(lang: str, lengths: dict) -> str:
 <header class="bar wrap">
   <a class="brand" href="{t["path"]}"><img src="{up}favicon.svg" alt="" width="28" height="28"><span>topic-to-video</span></a>
   <nav>
-    <a href="#explainer">{e(t["cats"]["explainer"][0])}</a><a href="#product">{e(t["cats"]["product"][0])}</a>
+    <a href="#explainer">{e(t["cats"]["explainer"][0])}</a><a href="#tutorial">{e(t["cats"]["tutorial"][0])}</a><a href="#product">{e(t["cats"]["product"][0])}</a>
     <a class="lang" href="{up if lang == "zh" else ""}{t["other"].lstrip("/")}" hreflang="{"zh-CN" if lang == "en" else "en"}">{t["other_label"]}</a>
     <a class="gh" href="{REPO}">{e(t["github"])}</a>
   </nav>
