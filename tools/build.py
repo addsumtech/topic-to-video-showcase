@@ -87,15 +87,16 @@ FILMS = [
     dict(cat='tutorial', how='director_rec', id='numbers-chart-tutorial', lang='en',
          title=('Make a chart in Numbers', '在 Numbers 里做一张图表'),
          kind=('Software tutorial', '软件操作教程'),
-         note=('Turn a table into a column chart in Apple Numbers: select the cells, Chart, 2D, the column chart, a chart '
-               'style, a title; then change one number and the chart follows. Every click, Shift-click and keystroke is '
-               'recorded from the real Numbers app, driven step by step, then edited to the voice: each click lands on '
-               'the word that names it, the camera follows it, the clicks and keys are heard, and the subtitles sit on the '
-               'sheet’s own empty canvas. The café figures are demo data.',
-               '在苹果 Numbers 里把一张表格做成柱状图：选中单元格，点「图表」、2D、柱状图，换图表样式，加标题；'
-               '再改一个数字，图表跟着变。片中每一次点击、Shift 点按和每一个按键，都是在真实的 Numbers 里一步步操作并录下来的，'
-               '再按旁白剪辑：每次点击落在说到它的那个词上，镜头跟着操作走，点击和打字有声音，字幕放在表格自己的空白画布上。'
-               '咖啡馆的数字是示例数据。')),
+         note=('Turn a table into a column chart in Apple Numbers: select the cells with the headings (click, then '
+               'Shift-click), Chart, the first column chart, drag it beside the table, Format, a chart style, a title; '
+               'then change one number and the chart grows with it. Every click and keystroke is recorded from the real '
+               'Numbers app, driven step by step, then edited to the voice: each click lands on the word that names it, '
+               'keycaps show Shift and Return, the clicks and keys are heard, and the subtitles sit on the sheet’s own '
+               'empty canvas. It ends on the five steps. The café figures are demo data.',
+               '在苹果 Numbers 里把一张表格做成柱状图：连同表头选中单元格（点一下，再按住 Shift 点一下），点「图表」，选第一个柱状图，'
+               '把它拖到表格旁边，点「格式」，换图表样式，加标题；再改一个数字，图表跟着长高。片中每一次点击和每一个按键，'
+               '都是在真实的 Numbers 里一步步操作并录下来的，再按旁白剪辑：每次点击落在说到它的那个词上，按键提示标出 Shift 和'
+               '回车，点击和打字有声音，字幕放在表格自己的空白画布上。片尾列出五个步骤。咖啡馆的数字是示例数据。')),
     dict(cat='product', how='director', id='workbuddy-promo-30s', lang='en', voice=False,
          title=('WorkBuddy in 30 seconds', 'WorkBuddy 30 秒宣传片'),
          kind=('Product promo', '产品宣传片'),
