@@ -97,6 +97,18 @@ FILMS = [
                '把它拖到表格旁边，点「格式」，换图表样式，加标题；再改一个数字，图表跟着长高。片中每一次点击和每一个按键，'
                '都是在真实的 Numbers 里一步步操作并录下来的，再按旁白剪辑：每次点击落在说到它的那个词上，按键提示标出 Shift 和'
                '回车，点击和打字有声音，字幕放在表格自己的空白画布上。片尾列出五个步骤。咖啡馆的数字是示例数据。')),
+    dict(cat='product', how='director', id='grok-bot-promo-38s', lang='en', voice=False,
+         title=('Grok Bot in 38 seconds', 'Grok Bot 38 秒宣传片'),
+         kind=('Product promo', '产品宣传片'),
+         note=('A 38-second promo told in type and music, with no voice-over, set in the app’s own paper-white world. '
+               'The Bots leap out of the real roster screen, each gets its own screen on a cloud computer, the laptop lid '
+               'shuts while the work keeps going, and the board deck comes back finished in the real 7:58 AM chat, '
+               'waiting for your OK. The roster, chat and welcome screens are the official screenshots; the mail, '
+               'calendar and receipts on the Bots’ screens are demo content. Independent, not affiliated with xAI.',
+               '一部 38 秒宣传短片，只有文字和配乐，没有旁白，全片在应用自己的纸白色世界里展开。Bot 们从真实的成员列表里'
+               '跳出来，每个 Bot 在云端电脑上有自己的屏幕；笔记本合上了，工作还在继续；做好的董事会演示稿回到真实的早上 '
+               '7:58 聊天里，等你点头。成员列表、聊天和欢迎页是官方截图；Bot 屏幕上的邮件、日历和报销单是示例内容。'
+               '独立作品，与 xAI 无关。')),
     dict(cat='product', how='director', id='workbuddy-promo-30s', lang='en', voice=False,
          title=('WorkBuddy in 30 seconds', 'WorkBuddy 30 秒宣传片'),
          kind=('Product promo', '产品宣传片'),
