@@ -21,6 +21,18 @@ FILMS = [
     # kind and note. Notes state only what the film shows. Within a category, newest work first.
     # voice: False for a film with no voice-over (type and music only); every other film is narrated (measured
     # 2026-11-24 by transcribing each film's audio). Shown as a tag on its card.
+    dict(cat='explainer', how='director3d', id='titanic-sinking', lang='en',
+         title=('Why the Titanic took 2 hours 40 minutes to sink', '泰坦尼克号为什么用了 2 小时 40 分钟才沉没'),
+         kind=('Explainer', '科普讲解'),
+         note=('The iceberg opened only about 12 square feet, in places along 300 feet of her side, but six of her '
+               'sixteen compartments, and the walls between them stopped at E or D deck. As the bow went down, the sea '
+               'spilled over each wall into the next room, one after another: 2 hours 40 minutes from the collision at '
+               '11:40 p.m. to 2:20 a.m. The ship is a Blender model built from the 1911 plans; every water level in her '
+               'rooms follows the 1912 British inquiry.',
+               '冰山撞出的破口加起来只有约 12 平方英尺，散布在船侧约 300 英尺的范围里，却打开了 16 个舱室中的 6 个，'
+               '而舱室之间的隔墙只修到 E 层或 D 层甲板。船头越沉越低，海水一间接一间地漫过隔墙顶端，流进下一个舱室：'
+               '从晚上 11:40 撞上冰山到凌晨 2:20 沉没，正是这 2 小时 40 分钟。船是依据 1911 年图纸在 Blender 里建的模型；'
+               '每个舱室里的水位都依据 1912 年英国的调查报告。')),
     dict(cat='explainer', how='director', id='shenzhen-border-town', lang='zh',
          title=('How Shenzhen grew from a border town into a megacity', '深圳是怎么从边境小镇变成超大城市的'),
          kind=('Explainer', '科普讲解'),

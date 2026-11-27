@@ -2,9 +2,9 @@
 
 The showcase site for [topic-to-video](https://github.com/addsumtech/topic-to-video), served by GitHub Pages at <https://video.addsum.top> (Chinese at `/cn/`).
 
-It shows sixteen films the skill made, in three sections:
+It shows seventeen films the skill made, in three sections:
 
-- **Explainers**: how Shenzhen grew from a border town into a megacity (told with real satellite images and photographs), why a diamond sparkles (rendered in Blender 3D), why a falling cat lands on its feet, why the sky is blue and sunsets red, how a lens makes a sharp image, a QR-code film, MRI, noise cancelling.
+- **Explainers**: why the Titanic took 2 hours 40 minutes to sink (the ship rendered in Blender, the flooding as the 1912 inquiry found it), how Shenzhen grew from a border town into a megacity (told with real satellite images and photographs), why a diamond sparkles (rendered in Blender 3D), why a falling cat lands on its feet, why the sky is blue and sunsets red, how a lens makes a sharp image, a QR-code film, MRI, noise cancelling.
 - **Tutorials**: how to make a chart in Apple Numbers, recorded from the real app (every click and keystroke driven and recorded, then edited to the voice).
 - **Product films**: Grok Bot (a 38-second promo and a launch film), WorkBuddy, topic-to-video, slide-maker, job-hunt.
 
